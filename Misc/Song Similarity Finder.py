@@ -19,8 +19,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import sys
 
 # Define your Spotify API credentials
-client_id = 'f246e453f63d4afdaa7271c05f1fef68'  # Replace with your actual Client ID - NEVER SHARE WITH OTHERS!
-client_secret = '6f97369ba7d748ca89a74a7b95089f57'  # Replace with your actual Client Secret - NEVER SHARE WITH OTHERS!
+client_id = 'client id'  # Replace with your actual Client ID - NEVER SHARE WITH OTHERS!
+client_secret = 'client secret'  # Replace with your actual Client Secret - NEVER SHARE WITH OTHERS!
 
 # Set up Spotify client credentials manager
 try:
