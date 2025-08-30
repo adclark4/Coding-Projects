@@ -66,3 +66,9 @@ The program generates professional charts such as:
 2. Install dependencies: pip install -r requirements.txt
 3. Run the program: python starbucks_sales_analytics.py
 4. Outputs will be saved in: /starbucks_sales_analytics_outputs/
+
+---
+
+## ✨ Author
+**Anthony "AJ" Clark**  
+Intermediate Computer Science & Data Science Student | Passionate about Data Analytics & Visualization
