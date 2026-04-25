@@ -47,8 +47,8 @@ def remove_substring_case_insensitive(text, substring):
 def rename_files(directory, mode, substring=None):
     files = os.listdir(directory)
 
-    # Matches dates like 2022.11.20
-    date_pattern = re.compile(r"\b\d{4}\.\d{2}\.\d{2}\b")
+    # Matches dates like 2022.11.20 or 11.20.2022
+    date_pattern = re.compile(r"\b(?:\d{4}\.\d{2}\.\d{2}|\d{2}\.\d{2}\.\d{4})\b")
 
     if mode == "substring":
         matching_files = [f for f in files if substring.lower() in f.lower()]
