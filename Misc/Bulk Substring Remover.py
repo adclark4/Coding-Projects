@@ -86,9 +86,9 @@ def rename_files(directory, mode, substring=None):
             # Remove only the date itself
             new_name = date_pattern.sub("", file)
 
-            # Only remove spaces if they end up right before the file extension
+            # Remove spaces if they end up at the beginning or right before the file extension
             base, ext = os.path.splitext(new_name)
-            base = re.sub(r"\s+$", "", base)
+            base = re.sub(r"^\s+|\s+$", "", base)
             new_name = base + ext
 
             # Still clean up separator issues, but do not collapse normal spaces
