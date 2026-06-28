@@ -1,6 +1,6 @@
 # Starbucks Sales Analytics & Forecasting (Synthetic Data)
 
-## 📌 Overview
+## Overview
 This project is a **Python-based analytics pipeline** that loads, cleans, and analyzes **synthetic Starbucks sales data**.  
 It was built as a portfolio project to demonstrate **data wrangling, exploratory data analysis (EDA), and forecasting skills** using modern Python libraries.  
 
@@ -8,7 +8,7 @@ The program processes raw CSVs (`menu.csv`, `customers.csv`, `sales.csv`), valid
 
 ---
 
-## 🚀 Features
+## Features
 - **Data Cleaning & Validation**
   - Detects missing values, duplicates, and incorrect data types.
   - Cleans and converts columns (dates, numerics, booleans).
@@ -34,7 +34,7 @@ The program processes raw CSVs (`menu.csv`, `customers.csv`, `sales.csv`), valid
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Language:** Python 3  
 - **Libraries:**  
   - `pandas` – data wrangling  
@@ -44,7 +44,7 @@ The program processes raw CSVs (`menu.csv`, `customers.csv`, `sales.csv`), valid
 
 ---
 
-## 📊 Example Visuals
+## Example Visuals
 The program generates professional charts such as:
 
 - **Top 10 Items by Revenue**
@@ -58,7 +58,7 @@ The program generates professional charts such as:
 
 ---
 
-## ▶️ How to Run
+## How to Run
 1. Clone the repo:
    ```bash
    git clone https://github.com/<your-username>/starbucks-sales-analytics.git
@@ -69,5 +69,5 @@ The program generates professional charts such as:
 
 ---
 
-## ✨ Author
+## Author
 **Anthony "AJ" Clark**  
