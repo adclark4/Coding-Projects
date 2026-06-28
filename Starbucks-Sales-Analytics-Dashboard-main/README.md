@@ -71,4 +71,3 @@ The program generates professional charts such as:
 
 ## ✨ Author
 **Anthony "AJ" Clark**  
-Intermediate Computer Science & Data Science Student | Passionate about Data Analytics & Visualization
