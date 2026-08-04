@@ -10,7 +10,7 @@ Features:
 - Option to preview the changes before renaming.
 - Handles duplicate filenames by appending unique suffixes if necessary.
 - Allows the user to keep using the same directory, change directory, or quit.
-- Can also remove date patterns like YYYY.MM.DD, MM.DD.YYYY, and MM.DD from file names.
+- Can also remove date patterns like YYYY.MM.DD, DD.MM.YYYY, and DD.MM from file names.
 - Allows multiple substrings to be removed without returning to the main menu.
 
 Requirements:
@@ -52,35 +52,40 @@ def rename_files(directory, mode, substring=None):
     files = os.listdir(directory)
 
     # Matches dates like:
-    # 2022.11.20
-    # 11.20.2022
-    # 12.06
+    # 2022.06.12 = YYYY.MM.DD
+    # 12.06.2022 = DD.MM.YYYY
+    # 12.06 = DD.MM
     #
     # Months are limited to 01 through 12.
     # Days are limited to 01 through 31.
     date_pattern = re.compile(
         r"(?<!\d)"
         r"(?:"
+        # YYYY.MM.DD
         r"\d{4}\.(?:0[1-9]|1[0-2])\.(?:0[1-9]|[12]\d|3[01])"
         r"|"
-        r"(?:0[1-9]|1[0-2])\.(?:0[1-9]|[12]\d|3[01])\.\d{4}"
+        # DD.MM.YYYY
+        r"(?:0[1-9]|[12]\d|3[01])\.(?:0[1-9]|1[0-2])\.\d{4}"
         r"|"
-        r"(?:0[1-9]|1[0-2])\.(?:0[1-9]|[12]\d|3[01])"
+        # DD.MM
+        r"(?:0[1-9]|[12]\d|3[01])\.(?:0[1-9]|1[0-2])"
         r")"
         r"(?!\d)"
     )
 
     if mode == "substring":
         matching_files = [
-            f for f in files
-            if substring.lower() in f.lower()
+            file for file in files
+            if substring.lower() in file.lower()
         ]
+
     elif mode == "pattern":
         # Search only the filename, not the file extension
         matching_files = [
-            f for f in files
-            if date_pattern.search(os.path.splitext(f)[0])
+            file for file in files
+            if date_pattern.search(os.path.splitext(file)[0])
         ]
+
     else:
         print("Invalid mode.")
         return
@@ -91,7 +96,7 @@ def rename_files(directory, mode, substring=None):
         else:
             print(
                 "No files found containing date patterns like "
-                "2022.11.20, 11.20.2022, or 12.06"
+                "2022.06.12, 12.06.2022, or 12.06"
             )
         return
 
@@ -116,6 +121,7 @@ def rename_files(directory, mode, substring=None):
         if mode == "substring":
             new_name = remove_substring_case_insensitive(file, substring)
             new_name = clean_filename(new_name, collapse_spaces=True)
+
         else:
             # Remove only the date itself from the filename,
             # without searching the file extension
@@ -197,12 +203,16 @@ def substring_removal_menu(directory):
             if action == "1":
                 # Return to the beginning of the substring removal loop
                 break
+
             elif action == "2":
                 return "menu"
+
             elif action == "3":
                 return "change_directory"
+
             elif action == "4":
                 return "quit"
+
             else:
                 print("Invalid option. Please enter 1, 2, 3, or 4.")
 
@@ -224,6 +234,7 @@ def main():
                 continue
 
             current_directory = directory
+
         else:
             directory = current_directory
             print(f"Current directory: {directory}")
@@ -232,7 +243,7 @@ def main():
         print("1. Remove specific substrings from filenames (example: FINAL)")
         print(
             "2. Remove dates from filenames "
-            "(examples: 2022.11.20, 11.20.2022, or 12.06)"
+            "(examples: 2022.06.12, 12.06.2022, or 12.06)"
         )
         print("3. Change to a different directory")
         print("4. Quit the program")
@@ -246,6 +257,7 @@ def main():
 
             if result == "change_directory":
                 current_directory = None
+
             elif result == "quit":
                 print("Goodbye!")
                 return
@@ -281,14 +293,18 @@ def main():
 
             if action == "1":
                 break
+
             elif action == "2":
                 rename_files(directory, mode="pattern")
+
             elif action == "3":
                 current_directory = None
                 break
+
             elif action == "4":
                 print("Goodbye!")
                 return
+
             else:
                 print("Invalid option. Please enter 1, 2, 3, or 4.")
 
