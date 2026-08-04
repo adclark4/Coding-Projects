@@ -221,7 +221,7 @@ def main():
     current_directory = None
 
     while True:
-        print("\nBulk Filename Cleaner")
+        print("\nBulk Substring Remover")
         print("----------------------")
 
         if current_directory is None:
