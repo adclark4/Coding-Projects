@@ -200,7 +200,7 @@ The notebook contains:
 
 2. Open:
 
-   `Project 1 - Delivery Robot Search and Planning.ipynb`
+   `Delivery Robot Search and Planning.ipynb`
 
    in Google Colab or Jupyter Notebook.
 
